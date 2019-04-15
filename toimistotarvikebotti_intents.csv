@@ -1,0 +1,32 @@
+ei mitään,ohjaus_takaisin
+lopeta,ohjaus_takaisin
+unohdetaan,ohjaus_takaisin
+jätetään sikseen,ohjaus_takaisin
+älä jaksa,ohjaus_takaisin
+vaihdetaan aihetta,ohjaus_takaisin
+puhutaan jostain muusta,ohjaus_takaisin
+takaisin,ohjaus_takaisin
+annetaan olla,ohjaus_takaisin
+ei sittenkään,ohjaus_takaisin
+unohda,ohjaus_takaisin
+Puretaan kaupat.,tilauksen_peruutus
+Voinko peruuttaa tilauksen?,tilauksen_peruutus
+Haluan peruuttaa tilauksen.,tilauksen_peruutus
+Voinko vielä perua?,tilauksen_peruutus
+Voitko peruuttaa tilaukseni?,tilauksen_peruutus
+Peruuta tilaus,tilauksen_peruutus
+En haluakaan näitä.,tilauksen_peruutus
+Voiko tilauksen vielä perua?,tilauksen_peruutus
+Haluan sittenkin peruuttaa,tilauksen_peruutus
+Onnistuuko perutus?,tilauksen_peruutus
+Tee tilaus,tilaus
+Voinko ostaa tuotteita?,tilaus
+Haluan tehdä tilauksen,tilaus
+Paperi on loppu,tilaus
+Tarvitsen kyniä,tilaus
+Voinko palauttaa tuotteet myymälään?,toimitusehdot
+Mitkä ovat toimitusehdot?,toimitusehdot
+Miten tilaus tapahtuu?,toimitusehdot
+Kuinka maksan?,toimitusehdot
+Miten toimitatte tuotteet?,toimitusehdot
+Kuinka pitkä palautusaika on?,toimitusehdot
