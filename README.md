@@ -14,19 +14,19 @@ Chatbot rakennetaan käyttäen Watson Assistant-palvelua. Voit luoda oman palvel
 
 **Toimistotarvikebotti**
 
-Kun olet luonut Watson Assistant-palvelun, voit aloittaa oman Assistantin rakentamisen painamalla IBM Cloud-tilisi Assistant-palvelusta ´Launch Tool´.
+Kun olet luonut Watson Assistant-palvelun, voit aloittaa oman Assistantin rakentamisen painamalla IBM Cloud-tilisi Assistant-palvelusta `Launch Tool`.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image001.png)
 
   
 
-Tämän jälkeen voit luoda ensimmäisen Skillisi painamalla aloitussivulta ´Create a skill´. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä ´Toimistotarvikebotti´. Voit jättää kielivalinnaksi English(US): tällä ei ole käyttötarkoituksessamme väliä, hyödynnämme Assistantin ydinkielimallia ilman kielikohtaisia erikoistumisia.
+Tämän jälkeen voit luoda ensimmäisen Skillisi painamalla aloitussivulta `Create a skill`. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä `Toimistotarvikebotti`. Voit jättää kielivalinnaksi English(US): tällä ei ole käyttötarkoituksessamme väliä, hyödynnämme Assistantin ydinkielimallia ilman kielikohtaisia erikoistumisia.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image002.png)
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image003.png)
 
-Kun Skill on luotu, eteesi avautuu tyhjä näkymä välilehdillä ´Intents´, ´Entities´ ja ´Dialog´. ´Content Catalog´-välilehden voit jättää huomiotta; tämä sisältää valmiita keskusteluja ja Intentejä englanninkielisen chatbotin rakentamiseen. Koska keskitymme workshopissa suomen kieleen, emme tule hyödyntämään näitä osuuksia.
+Kun Skill on luotu, eteesi avautuu tyhjä näkymä välilehdillä `Intents`, `Entities` ja `Dialog`. `Content Catalog`-välilehden voit jättää huomiotta; tämä sisältää valmiita keskusteluja ja Intentejä englanninkielisen chatbotin rakentamiseen. Koska keskitymme workshopissa suomen kieleen, emme tule hyödyntämään näitä osuuksia.
 
 Aloitetaan keskustelun suunnittelulla, ja siirrytään luomaan ensimmäiset Intentit.
 
@@ -120,7 +120,7 @@ Anything elsen kohdalla haluamme antaa useamman vaihtoehdon; on mahdollista, ett
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image009.png)
 
-Nyt voimme luoda ensimmäisen Noden. Paina Dialog-näkymän ylälaidasta Create Node ja varmista, että se on Welcome- ja Anything Else-noden välissä. Anna Nodelle nimi Toimitusehdot ja kohtaan ´If assistant recognizes´ hae aikaisemmin luotu #toimitusehdot-intent. ”Then respond with”-kenttään haluamme lisätä tekstin, joka lähetetään, kun aikaisempi ehto toteutuu:
+Nyt voimme luoda ensimmäisen Noden. Paina Dialog-näkymän ylälaidasta Create Node ja varmista, että se on Welcome- ja Anything Else-noden välissä. Anna Nodelle nimi Toimitusehdot ja kohtaan `If assistant recognizes` hae aikaisemmin luotu #toimitusehdot-intent. ”Then respond with”-kenttään haluamme lisätä tekstin, joka lähetetään, kun aikaisempi ehto toteutuu:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image010.png)
 
