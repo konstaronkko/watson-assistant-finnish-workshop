@@ -6,6 +6,8 @@
 
 **Rakenna suomenkielinen toimistotarvikkeiden myyntibotti Watson Assistantia käyttäen**
 
+Aloita lataamalla tai kloonaamalla tämä repository koneellesi.
+
 Tämä workshop vaatii IBM Cloud-tilin. Voit rekisteröidä ilmaisen kokeiluversion täältä: [https://cloud.ibm.com/registration](https://cloud.ibm.com/registration)
 
 Chatbot rakennetaan käyttäen Watson Assistant-palvelua. Voit luoda oman palvelun kirjautumalla IBM Cloudiin, ja etsimällä Catalog-osiosta Watson Assistant. Valitse Lite plan ja seuraa ohjeita palvelun luomiseksi.
@@ -54,19 +56,19 @@ Tätä harjoitusta varten luodaan neljä intentiä ja niiden esimerkit. Luo ensi
 
 **#tietoa\_myymälästä**
 
-´Voitko kertoa teidän myymälöistä?´
+`Voitko kertoa teidän myymälöistä?`
 
-´Onko teillä myymälää täällä?´
+`Onko teillä myymälää täällä?`
 
-´Mistä teidät löytää?´
+Mistä teidät löytää?`
 
-´Missä teidän myymälät ovat?´
+`Missä teidän myymälät ovat?`
 
-´Missä se kauppa on?´
+`Missä se kauppa on?`
 
-´Missä Lahden kauppa on?´
+`Missä Lahden kauppa on?`
 
-´Missä Jyväskylän myymälä sijaitsee?´
+`Missä Jyväskylän myymälä sijaitsee?`
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image004.png)
 
