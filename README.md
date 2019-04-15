@@ -60,7 +60,7 @@ Tätä harjoitusta varten luodaan neljä intentiä ja niiden esimerkit. Luo ensi
 
 `Onko teillä myymälää täällä?`
 
-Mistä teidät löytää?`
+`Mistä teidät löytää?`
 
 `Missä teidän myymälät ovat?`
 
