@@ -10,7 +10,9 @@ Aloita lataamalla tai kloonaamalla tämä repository koneellesi.
 
 Tämä workshop vaatii IBM Cloud-tilin. Voit rekisteröidä ilmaisen kokeiluversion täältä: [https://cloud.ibm.com/registration](https://cloud.ibm.com/registration)
 
-Chatbot rakennetaan käyttäen Watson Assistant-palvelua. Voit luoda oman palvelun kirjautumalla IBM Cloudiin, ja etsimällä Catalog-osiosta Watson Assistant. Valitse Lite plan ja seuraa ohjeita palvelun luomiseksi.
+Chatbot rakennetaan käyttäen Watson Assistant-palvelua. Voit luoda oman palvelun kirjautumalla IBM Cloudiin, ja etsimällä Catalog-osiosta Watson Assistant. Valitse Plus Trial-plan ja seuraa ohjeita palvelun luomiseksi.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image000.png)
 
 **Toimistotarvikebotti**
 
@@ -20,13 +22,14 @@ Kun olet luonut Watson Assistant-palvelun, voit aloittaa oman Assistantin rakent
 
   
 
-Tämän jälkeen voit luoda ensimmäisen Skillisi painamalla aloitussivulta `Create a skill`. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä `Toimistotarvikebotti`. Voit jättää kielivalinnaksi English(US): tällä ei ole käyttötarkoituksessamme väliä, hyödynnämme Assistantin ydinkielimallia ilman kielikohtaisia erikoistumisia.
+Tämän jälkeen Assistant-palvelun pitäisi luoda sinulle valmiiksi ensimmäisen Assistanttisi ja Skillisi. Voit jättää kielivalinnaksi English(US): tällä ei ole käyttötarkoituksessamme väliä, hyödynnämme Assistantin ydinkielimallia ilman kielikohtaisia erikoistumisia.
+
+Jos Skilliä ei luotu automaattisesti, voit luoda ensimmäisen Skillisi painamalla aloitussivulta `Create a skill`. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä `Toimistotarvikebotti`.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image002.png)
 
-![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image003.png)
 
-Kun Skill on luotu, eteesi avautuu tyhjä näkymä välilehdillä `Intents`, `Entities` ja `Dialog`. `Content Catalog`-välilehden voit jättää huomiotta; tämä sisältää valmiita keskusteluja ja Intentejä englanninkielisen chatbotin rakentamiseen. Koska keskitymme workshopissa suomen kieleen, emme tule hyödyntämään näitä osuuksia.
+Kun Skill on luotu, eteesi avautuu tyhjä näkymä välilehdillä `Intents`, `Entities` ja `Dialog`. Muut välilehdet voit jättää huomiotta; tässä harjoituksessa emme tarvitse muita ominaisuuksia.
 
 Aloitetaan keskustelun suunnittelulla, ja siirrytään luomaan ensimmäiset Intentit.
 
@@ -194,4 +197,4 @@ Lopuksi haluamme vielä rakentaa vielä tilauksen peruutusmahdollisuuden. Tämä
 
 **Loppu**
 
-Onneksi olkoon, nyt sinulla pitäisi olla valmis tilausbotti. Voit painaa ”Try it”-nappia ja leikkiä botilla, tai kokeilla rakentaa lisää tilausvaihtoehtoja.
+Onneksi olkoon, nyt sinulla pitäisi olla valmis tilausbotti. Voit painaa ”Try it”-nappia ja leikkiä botilla, tai kokeilla rakentaa lisää tilausvaihtoehtoja. Kokeile myös Assistant-välilehdeltä bottisi julkaisuvaihtoehtoja.
