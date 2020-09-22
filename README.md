@@ -1,6 +1,6 @@
 **Watson Assistant Finnish Workshop**
 
-**Konsta Rönkkö, Client Technical Specialist, IBM**
+**Konsta Rönkkö, Technical Architect, IBM**
 
 **Konsta.ronkko@ibm.com**
 
@@ -113,13 +113,13 @@ Viimeinen muuttujamme(**@Tilausnumero**) on hieman huijausta, sillä tunnistamme
 
 **Dialog**
 
-Seuraavaksi rakennamme itse keskustelun. Toisin kuin Intentit ja Entityt, Dialog on täysin sääntöpohjainen. Dialog-puu menee aina alhaalta ylös, kunnes se löytää noden, jonka ehdot täyttyvät (Esimerkiksi Jos #tilaus ja @Toimistotarvike:Kynä). Noden sisään mennään vain, jos sen Parent noden ehto on täyttynyt. Dialogin lisäksi on myös Context, johon voidaan tallentaa keskustelun aikana tietoa, kuten käyttäjän nimi, halutut tuotteet tai löydetyt entityt, jotta voidaan seurata keskustelua ja palata jo kerrottuihin asioihin myöhemmin. Itse tehtyjen Intentien ja Entityjen lisäksi on aina kolme valmista tunnistetta: Welcome, anything\_else ja true. Welcome aktivoituu, kun chat aukeaa, ennen käyttäjän syötettä jota tulkita. Anything\_else ja true toteutuvat aina: kun dialogipolussa kohdataan anything\_else, se toteutetaan, ja keskustelu ei etene alempiin nodeihin.
+Seuraavaksi rakennamme itse keskustelun. Toisin kuin Intentit ja Entityt, Dialog on täysin sääntöpohjainen. Dialog-puu menee aina vaihtoehtoja ylhäältä alaspäin, kunnes se löytää noden, jonka ehdot täyttyvät (Esimerkiksi Jos #tilaus ja @Toimistotarvike:Kynä). Noden sisään mennään vain, jos sen Parent noden ehto on täyttynyt. Dialogin lisäksi on myös Context, johon voidaan tallentaa keskustelun aikana tietoa, kuten käyttäjän nimi, halutut tuotteet tai löydetyt entityt, jotta voidaan seurata keskustelua ja palata jo kerrottuihin asioihin myöhemmin. Itse tehtyjen Intentien ja Entityjen lisäksi on aina kolme valmista tunnistetta: Welcome, anything\_else ja true. Welcome aktivoituu, kun chat aukeaa, ennen käyttäjän syötettä jota tulkita. Anything\_else ja true toteutuvat aina: kun dialogipolussa kohdataan anything\_else, se toteutetaan, ja keskustelu ei etene alempiin nodeihin.
 
 Muutetaan ensin Welcome ja Anything Else- Nodet suomenkieliseen bottiin paremmin sopiviksi:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image008.png)
 
-Anything elsen kohdalla haluamme antaa useamman vaihtoehdon; on mahdollista, että käyttäjä joutuu tähän Nodeen useamman kerran, joten emme halua vaikuttaa liian itseään toistavalta. Lisäämme myös kehoituksen ottaa yhteyttä asiakaspalvelijaan, jos keskustelu ei näytä etenevän ja joudumme usein myöntämään, ettemme pysty tulkitsemaan syötettä.
+Anything elsen kohdalla haluamme antaa useamman vaihtoehdon; on mahdollista, että käyttäjä joutuu tähän Nodeen useamman kerran, joten emme halua toistaa samaa lausetta käyttäjälle useasti. Lisäämme myös kehoituksen ottaa yhteyttä asiakaspalvelijaan, jos keskustelu ei näytä etenevän ja joudumme usein myöntämään, ettemme pysty tulkitsemaan syötettä.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image009.png)
 
