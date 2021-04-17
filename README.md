@@ -1,10 +1,12 @@
 **Watson Assistant Finnish Workshop**
 
 **Konsta Rönkkö, Technical Architect, IBM**
+
 **konsta.ronkko@ibm.com**
 
 Web chat-integraation ohjeen lisäys ja päivitys:
 **Lasse Huotari, Client Technical Specialist, IBM**
+
 **lasse.huotari@ibm.com**
 
 **Rakenna suomenkielinen toimistotarvikkeiden myyntibotti Watson Assistantia käyttäen**
