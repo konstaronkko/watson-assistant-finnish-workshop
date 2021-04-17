@@ -1,6 +1,6 @@
 **Watson Assistant Finnish Workshop**
 
-**Konsta Rönkkö, Client Technical Specialist, IBM**
+**Konsta Rönkkö, Technical Architect, IBM**
 
 **Konsta.ronkko@ibm.com**
 
@@ -24,7 +24,7 @@ Kun olet luonut Watson Assistant-palvelun, voit aloittaa oman Assistantin rakent
 
 Tämän jälkeen Assistant-palvelun pitäisi luoda sinulle valmiiksi ensimmäisen Assistanttisi ja Skillisi. Voit jättää kielivalinnaksi English(US): tällä ei ole käyttötarkoituksessamme väliä, hyödynnämme Assistantin ydinkielimallia ilman kielikohtaisia erikoistumisia.
 
-Jos Skilliä ei luotu automaattisesti, voit luoda ensimmäisen Skillisi painamalla aloitussivulta `Create a skill`. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä `Toimistotarvikebotti`.
+Jos Skilliä ei luotu automaattisesti, voit luoda ensimmäisen Skillisi painamalla aloitussivulta `Add Dialogue Skill`. Ja mene `Create skill`-välilehdelle. Anna skillille nimi; tässä harjoituksessa voit käyttää nimeä `Toimistotarvikebotti`.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image002.png)
 
@@ -57,7 +57,11 @@ Intentit ovat esimerkkejä, joilla opetetaan Assistantille, mitä käyttäjän t
 
 Tätä harjoitusta varten luodaan neljä intentiä ja niiden esimerkit. Luo ensimmäinen syöttämällä käsin seuraavat esimerkit:
 
+Paina `Create Intent`ja anna Intentille nimi:
+
 **#tietoa\_myymälästä**
+
+Seuraavaksi paina `Create Intent` ja syötä alla olevat esimerkit yksikerrallaan kohtaan `Type a user example here`
 
 `Voitko kertoa teidän myymälöistä?`
 
@@ -75,7 +79,7 @@ Tätä harjoitusta varten luodaan neljä intentiä ja niiden esimerkit. Luo ensi
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image004.png)
 
-Loput Intentit ja esimerkit löytyvät valmiiksi tehtyinä kansiosta. Voit tuoda ne bottiisi Import-napilla:
+Loput Intentit ja esimerkit löytyvät valmiiksi tehtyinä kansiosta. Voit tuoda ne bottiisi Upload-napilla:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image005.png)
 
@@ -84,6 +88,8 @@ Valitse koneeltasi valmiiksi ladattu .csv-tiedosto:
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image006.png)
 
 Tämän jälkeen voit painaa oikeasta yläkulmasta “Try it” ja katsoa, tunnistaako Assistant intentisi oikein. Koska et ole vielä luonut dialogia, Assistant ei vielä vastaa sinulle.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays1.png)
 
 **Entities**
 
@@ -95,13 +101,17 @@ Entityillä on kolme tasoa: Entityn nimi, Entityn arvo ja synonyymit tai pattern
 
             Pattern on perinteisempi täydellinen osuma, ja käyttää löyhästi Javan Regular Expressioniin pohjautuvaa syötettä. Voit siis hakea Entityjä myös RegExillä.
 
-Tätä harjoitusta varten luodaan viisi Entityä:
+Tätä harjoitusta varten luodaan viisi Entityä. Mene välilehtivalikosta kohtaan `Entities` ja valitse `Create Entity`:
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays1.png)
+
+Lisää nyt alla olevan esimerkin mukaisesti Entiteetti `Toimitustapa`
 
 **@Toimitustapa**
 
 **![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image007.png)**
 
-Löydät kansiosta neljä muuta entityä valmiina, jotka voit tuoda import-toiminnolla bottiisi:
+Löydät kansiosta neljä muuta entityä valmiina, jotka voit tuoda upload-toiminnolla bottiisi `Entities` sivulta:
 
 **@Toimistotarvike**
 
@@ -113,23 +123,30 @@ Viimeinen muuttujamme(**@Tilausnumero**) on hieman huijausta, sillä tunnistamme
 
 **Dialog**
 
-Seuraavaksi rakennamme itse keskustelun. Toisin kuin Intentit ja Entityt, Dialog on täysin sääntöpohjainen. Dialog-puu menee aina alhaalta ylös, kunnes se löytää noden, jonka ehdot täyttyvät (Esimerkiksi Jos #tilaus ja @Toimistotarvike:Kynä). Noden sisään mennään vain, jos sen Parent noden ehto on täyttynyt. Dialogin lisäksi on myös Context, johon voidaan tallentaa keskustelun aikana tietoa, kuten käyttäjän nimi, halutut tuotteet tai löydetyt entityt, jotta voidaan seurata keskustelua ja palata jo kerrottuihin asioihin myöhemmin. Itse tehtyjen Intentien ja Entityjen lisäksi on aina kolme valmista tunnistetta: Welcome, anything\_else ja true. Welcome aktivoituu, kun chat aukeaa, ennen käyttäjän syötettä jota tulkita. Anything\_else ja true toteutuvat aina: kun dialogipolussa kohdataan anything\_else, se toteutetaan, ja keskustelu ei etene alempiin nodeihin.
+Seuraavaksi rakennamme itse keskustelun. Toisin kuin Intentit ja Entityt, Dialog on täysin sääntöpohjainen. Dialog-puu menee aina vaihtoehtoja ylhäältä alaspäin, kunnes se löytää noden, jonka ehdot täyttyvät (Esimerkiksi Jos #tilaus ja @Toimistotarvike:Kynä). Noden sisään mennään vain, jos sen Parent noden ehto on täyttynyt. Dialogin lisäksi on myös Context, johon voidaan tallentaa keskustelun aikana tietoa, kuten käyttäjän nimi, halutut tuotteet tai löydetyt entityt, jotta voidaan seurata keskustelua ja palata jo kerrottuihin asioihin myöhemmin. Itse tehtyjen Intentien ja Entityjen lisäksi on aina kolme valmista tunnistetta: Welcome, anything\_else ja true. Welcome aktivoituu, kun chat aukeaa, ennen käyttäjän syötettä jota tulkita. Anything\_else ja true toteutuvat aina: kun dialogipolussa kohdataan anything\_else, se toteutetaan, ja keskustelu ei etene alempiin nodeihin.
 
-Muutetaan ensin Welcome ja Anything Else- Nodet suomenkieliseen bottiin paremmin sopiviksi:
+Valitse nyt Välilehtivalikosta `Dialog`kohta.
+
+Muutetaan ensin Welcome ja Anything Else- Nodet suomenkieliseen bottiin paremmin sopiviksi. Klikkaa Welcome nodea ja muuta teksti haluamaksesi, voit katsoa mallia alta:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image008.png)
 
-Anything elsen kohdalla haluamme antaa useamman vaihtoehdon; on mahdollista, että käyttäjä joutuu tähän Nodeen useamman kerran, joten emme halua vaikuttaa liian itseään toistavalta. Lisäämme myös kehoituksen ottaa yhteyttä asiakaspalvelijaan, jos keskustelu ei näytä etenevän ja joudumme usein myöntämään, ettemme pysty tulkitsemaan syötettä.
+Anything elsen kohdalla haluamme antaa useamman vaihtoehdon; on mahdollista, että käyttäjä joutuu tähän Nodeen useamman kerran, joten emme halua toistaa samaa lausetta käyttäjälle useasti. Lisäämme myös kehoituksen ottaa yhteyttä asiakaspalvelijaan, jos keskustelu ei näytä etenevän ja joudumme usein myöntämään, ettemme pysty tulkitsemaan syötettä.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image009.png)
 
-Nyt voimme luoda ensimmäisen Noden. Paina Dialog-näkymän ylälaidasta Create Node ja varmista, että se on Welcome- ja Anything Else-noden välissä. Anna Nodelle nimi Toimitusehdot ja kohtaan `If assistant recognizes` hae aikaisemmin luotu #toimitusehdot-intent. ”Then respond with”-kenttään haluamme lisätä tekstin, joka lähetetään, kun aikaisempi ehto toteutuu:
+Nyt voimme luoda ensimmäisen Noden. Paina Dialog-näkymän ylälaidasta Add Node ja varmista, että se on Welcome- ja Anything Else-noden välissä. Anna Nodelle nimi Toimitusehdot ja kohtaan `If assistant recognizes` hae aikaisemmin luotu #toimitusehdot-intent. ”Then respond with”-kenttään haluamme lisätä tekstin, joka lähetetään, kun aikaisempi ehto toteutuu:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image010.png)
 
 **Useamman tason keskustelu**
 
-Voimme myös luoda keskustelun useammassa tasossa. Aloita luomalla kansio ”Create folder”-napista. Määrittele kansiolle nimeksi ”Myymälätiedot” ja ”If assistant recognizes”-kenttään #tietoa\_myymälästä-Intent. Seuraavaksi paina kansion oikeassa nurkassa olevaa kolmea pistettä ja valitse ”Add node to folder”. Anna Nodelle nimeksi ”Jyväskylän myymälä” ja määritä ehdoksi Entity ”@Kaupan\_Sijainnit:Jyväskylä”:
+Voimme myös luoda keskustelun useammassa tasossa. Aloita luomalla kansio ”add folder”-napista. Määrittele kansiolle nimeksi ”Myymälätiedot” ja ”If assistant recognizes”-kenttään #tietoa\_myymälästä-Intent.
+Jos Folder meni Dialogi puun ylimmäiseksi tulee se siirtää Welcome noden alle. Paina kolmea pistettä Folder Noden oikeassa yläreunassa ja valitse `Move`. Seuraavaksi klikkaa Welcome nodea ja valitse `Below node`. 
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays3.png)
+
+Paina kansion oikeassa nurkassa olevaa kolmea pistettä ja valitse ”Add node to folder”. Anna Nodelle nimeksi ”Jyväskylän myymälä” ja määritä ehdoksi Entity ”@Kaupan\_Sijainnit:Jyväskylä”:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image011.png)
 
@@ -147,7 +164,7 @@ Kansion lopullisen rakenteen pitäisi näyttää tältä:
 
 **Käyttäjän syötteiden kerääminen yhdessä Nodessa**
 
-Seuraavaksi luomme uudenlaisen Noden: Slots. Slots-node antaa mahdollisuuden kerätä useammman syötteen samalla kertaa ja tallentamaan sen Contextiin ilman pitkää keskustelupolkua. Luo uusi node samalla tavalla, avaa se ja paina Customize oikeassa yläkulmassa. Valitse Slots ja Multiple responses aktiiviseksi:
+Seuraavaksi luomme uudenlaisen Noden: Slots. Slots-node antaa mahdollisuuden kerätä useammman syötteen samalla kertaa ja tallentamaan sen Contextiin ilman pitkää keskustelupolkua. Luo uusi node samalla tavalla kuin toimitusehtojen kohdassa, avaa se ja paina Customize oikeassa yläkulmassa. Valitse Slots ja Multiple responses aktiiviseksi:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image015.png)
 
@@ -159,13 +176,13 @@ Tämän lisäksi aktivoimme kentän ”Multiple responses”. Tämä mahdollista
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image017.png)
 
-Painamalla ratasikonia voimme muokata vastausta kuten muitakin Nodeja. Huomaa, että voimme viitata käyttäjän aikaisempaan syötteeseen hakemalla sen Contextista tai syötteestä. Tässä tapauksessa haluamme vahvistaa käyttäjän valitseman toimitustavan vastauksessamme:
+Painamalla ratasikonia `$Toimistotarvike:Paperi`riviltä voimme muokata vastausta kuten muitakin Nodeja. Huomaa, että voimme viitata käyttäjän aikaisempaan syötteeseen hakemalla sen Contextista tai syötteestä. Tässä tapauksessa haluamme vahvistaa käyttäjän valitseman toimitustavan vastauksessamme:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image018.png)
 
 Voimme halutessamme tehdä myös monimutkaisempia valintoja. Tässä tapauksessa valikoimassamme on useampia kyniä, joita tarjoamme asiakkaalle Option-vaustauksen muodossa.
 
-Avaa $Toimistotarvike-ehdon vastausvaihtoehto ratasikonista, ja muuta se palauttamaan Text- ja Option responset:
+Avaa $Toimistotarvike:Kynä-ehdon vastausvaihtoehto ratasikonista, ja muuta se palauttamaan Text- ja Option responset:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image019.png)
 
@@ -179,22 +196,44 @@ Lisää kynävaihtoehtoon uuden valintaikkunamme mukaiset Entityt ja sopiva vast
 
 **Keskustelusta poikkeaminen**
 
-Käyttäjämme saattaa haluta kysellä myymälän sijainteja tai toimitusehtoja myös tilauksen aikana. Tämä on mahdollista Digressions-ominaisuuden ansiosta, jolloin voimme käydä toisessa keskustelupolussa ja palata takaisin samaan paikkaan, josta kysely aloitettiin. Aktivoidaan tämä kansiollemme painamalla Customize-nappia ja aktivoimalla Digressions- sekä return after digression-valinnat:
+Käyttäjämme saattaa haluta kysellä myymälän sijainteja tai toimitusehtoja myös tilauksen aikana. Tämä on mahdollista Digressions-ominaisuuden ansiosta, jolloin voimme käydä toisessa keskustelupolussa ja palata takaisin samaan paikkaan, josta kysely aloitettiin. Aktivoidaan tämä kansiollemme `Myymälätietoja` klikkaamalla kansiota, painamalla Customize-nappia ja aktivoimalla Digressions- sekä return after digression-valinnat:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image022.png)
 
-Tämän lisäksi Slots-nodessa pitää aktivoida mahdollisuus poiketa kesken kyselyn. Avaa Tilaus-noden Customize-ikkuna, valitse Digressions ja aktivoi mahdollisuus:
+Tämän lisäksi `Toimistotarvikkeen tilaus` Slots-nodessa pitää aktivoida mahdollisuus poiketa kesken kyselyn. Avaa Toimistotarvikkeen tilaus-noden Customize-ikkuna, valitse Digressions ja aktivoi mahdollisuus:
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image023.png)
 
-Lopuksi haluamme vielä rakentaa vielä tilauksen peruutusmahdollisuuden. Tämä käy helposti kahdella sisäkkäisellä nodella: ensimmäisessä vahvistetaan kysyjän halu peruuttaa tilaus sekä kysytään tilausnumeroa. Toisessa katsotaan, vastaako käyttäjän syöte tunnettuja tilausnumeroita:
+Lopuksi haluamme vielä rakentaa vielä tilauksen peruutusmahdollisuuden. Tämä käy helposti kahdella sisäkkäisellä nodella: ensimmäisessä vahvistetaan kysyjän halu peruuttaa tilaus sekä kysytään tilausnumeroa. Toisessa katsotaan, vastaako käyttäjän syöte tunnettuja tilausnumeroita. Aloita tekemällä uusi Node kuten aikaisemmin ja tee sille child node.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image024.png)
 
+Avaa ensin päänode ja anna nimeksi #tilauksen_peruutus ja lisää oikea intent `If assistant recognizes` kohtaan. Huomaa lisätä myös vastausteksti.
+
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image025.png)
+
+Avaa sitten tekemäsi Child Node ja anna sen ehdoksi Entiteetti @Tilausnumero. Muista taas syöttää sopiva vastaus.
 
 ![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/image026.png)
 
 **Loppu**
 
-Onneksi olkoon, nyt sinulla pitäisi olla valmis tilausbotti. Voit painaa ”Try it”-nappia ja leikkiä botilla, tai kokeilla rakentaa lisää tilausvaihtoehtoja. Kokeile myös Assistant-välilehdeltä bottisi julkaisuvaihtoehtoja.
+Hieno, botti on nyt valmis testiin. Palaa `Assistants`välilehdelle aivan vasemmassa reunasta löytyvän välilehti valikon avulla.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays4.png)
+
+Valitse Toimistotarvikebotti. Oikealla olevasta valikosta valitse `Add integration`. Tällä sivulla näet kaikki valmiiksi Watson Assistantista löytyvät integraatiot Botin julkaisemista varten.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays5.png)
+
+Valitse seuraavaksi listasta `Preview`. Tällä toiminnolla saamme käyttöömme Preview assistant näkymän, jota voi käyttää testaamiseen.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays6.png)
+
+Voit kopioida myös linkin sivun oikeasta laidasta ja jakaa linkin muille halutessasi!
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays7.png)
+
+Onneksi olkoon, bottisi on valmis ja voit nyt jutella sen kanssa. Muista että botti osaa keskustella vain niistä aiheista joita tässä harjoituksessa opetit. Se vaatii luultavasti vähän lisäkoulutusta ennenkuin se on tuotantovalmis Verkkokauppaan laitettavaksi.
+
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays8.png)
