@@ -1,8 +1,11 @@
 **Watson Assistant Finnish Workshop**
 
 **Konsta Rönkkö, Technical Architect, IBM**
+**konsta.ronkko@ibm.com**
 
-**Konsta.ronkko@ibm.com**
+Web chat-integraation ohjeen lisäys ja päivitys:
+**Lasse Huotari, Client Technical Specialist, IBM**
+**lasse.huotari@ibm.com**
 
 **Rakenna suomenkielinen toimistotarvikkeiden myyntibotti Watson Assistantia käyttäen**
 
@@ -103,7 +106,7 @@ Entityillä on kolme tasoa: Entityn nimi, Entityn arvo ja synonyymit tai pattern
 
 Tätä harjoitusta varten luodaan viisi Entityä. Mene välilehtivalikosta kohtaan `Entities` ja valitse `Create Entity`:
 
-![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays1.png)
+![](Watson%20Assistant%20Finnish%20Workshop%20v2.0.fld/LHlisays2.png)
 
 Lisää nyt alla olevan esimerkin mukaisesti Entiteetti `Toimitustapa`
 
